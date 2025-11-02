@@ -1,0 +1,40 @@
+SQL query to answer the analytical question: "Which products were sold the most and which were sold the least during the timespan of 30 days?"
+In this case, the month chosen is June (or in this query it is referred to as "06"). 
+
+(
+  SELECT 
+    product_id, 
+    product_name, 
+    SUM(sales_quantity) AS total_sold,
+    'MOST SOLD' AS category
+  FROM
+    denor_view
+  WHERE
+    sales_month = '06'
+    AND sales_year = '2025' 
+  GROUP BY
+    product_id, product_name
+  ORDER BY 
+    total_sold DESC
+  LIMIT 1
+)
+
+UNION ALL
+
+(
+  SELECT
+    product_id, 
+    product_name,
+    SUM(sales_quantity) AS total_sold,
+    'LEAST SOLD' AS category
+  FROM
+    denor_view
+  WHERE
+    sales_month = '06'
+    AND sales_year = '2025' 
+  GROUP BY
+    product_id, product_name
+  ORDER BY 
+    total_sold ASC
+  LIMIT 1
+); 

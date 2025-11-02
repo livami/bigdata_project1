@@ -1,0 +1,14 @@
+SQL query to answer the analytical question: "With which product did we achieve the highest turnover during the business year?"
+
+SELECT 
+  product_id,
+  product_name, 
+  sales_year,
+  SUM(turnover) AS annual_turnover
+FROM
+  denormalized_view
+GROUP BY
+  product_id, product_name, sales_year
+ORDER BY 
+  annual_turnover DESC
+LIMIT 1; 
