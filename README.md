@@ -8,30 +8,17 @@ This small demo project contains a sample MySQL dataset and example analytical q
 - Example analytical queries are provided in:
   - [`Query to analytical question 1.txt`](Query to analytical question 1.txt)
   - [`Query to analytical question 2.txt`](Query to analytical question 2.txt)
-- Build config: [`pom.xml`](pom.xml)
-- Logging config: [`config.xml`](config.xml)
+- Java files: [`EventGenerator.java`](EventGenerator.java), [`EventProcessorAdvanced.java`](EventProcessorAdvanced.java),  [`CountAndSum.java`](CountAndSum.java) and [`MyProcessor.java`](MyProcessor.java)
+- Build configuration: [`pom.xml`](pom.xml)
+- Logging configuration: [`config.xml`](config.xml)
 
 ## Prerequisites
 - Java 17 (JDK)
 - Maven
 - MySQL server (to load and query the dump)
 
-## Setup
-1. Load the sample database into MySQL:
-   ```sh
-   mysql -u root -p mydb < "tante emma_DB.sql"
-   ```
-2. Verify the view and tables:
-   - The denormalized view is named `denor_view` (see [`tante emma_DB.sql`](tante emma_DB.sql)).
-
-## Build
-- This repository uses Maven. To compile (if/when Java sources are added):
-  ```sh
-  mvn package
-  ```
-
 ## Analytical queries
-- Which products were sold the most / least in June 2025:
+- Which products were sold the most and which were sold the least during the timespan of 30 days:
   - See [`Query to analytical question 1.txt`](Query to analytical question 1.txt)
 - Product with highest annual turnover:
   - See [`Query to analytical question 2.txt`](Query to analytical question 2.txt)
@@ -40,13 +27,10 @@ This small demo project contains a sample MySQL dataset and example analytical q
 - `tante emma_DB.sql` — MySQL dump with tables, data and the view [`denor_view`](tante emma_DB.sql)
 - `Query to analytical question 1.txt` — SQL for most/least sold in a 30-day timespan
 - `Query to analytical question 2.txt` — SQL for highest turnover in a business year
+- `EventGenerator.java` -
+- `EventProcessorAdvanced.java` -
+- `CountAndSum.java` -
+- `MyProcessor.java` - 
 - `pom.xml` — Maven project file
 - `config.xml` — Logback configuration
 - `README.md` — this file
-
-## Notes
-- No application source code is currently present under `src/`. The `pom.xml` is prepared for a Java 17/Maven project.
-- Use the provided SQL dump to run analyses locally using MySQL or any compatible client.
-
-}
-// ...existing code...
