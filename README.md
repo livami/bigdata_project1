@@ -1,7 +1,7 @@
 # bigdata_project1
-github repository for big data project 1
+This repository is intended for the first assignment for the FHNW module "Big, Semi- and Unstructured Data (BA)".
 
-Small demo project containing a sample MySQL dataset and example analytical queries for a retail/garden store ("Tante Emma").
+This small demo project contains a sample MySQL dataset and example analytical queries for a retail gardening store called "Tante Emma's Gardening Tools".
 
 ## Overview
 - SQL dump with schema and sample data: [`tante emma_DB.sql`](tante emma_DB.sql). The dump contains tables `customers`, `products`, `orders`, `sales` and a denormalized view [`denor_view`](tante emma_DB.sql).
