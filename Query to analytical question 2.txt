@@ -6,9 +6,10 @@ SELECT
   sales_year,
   SUM(turnover) AS annual_turnover
 FROM
-  denormalized_view
+  denor_view
 GROUP BY
   product_id, product_name, sales_year
 ORDER BY 
   annual_turnover DESC
+
 LIMIT 1; 
