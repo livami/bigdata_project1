@@ -27,10 +27,29 @@ This small demo project contains a sample MySQL dataset and example analytical q
 - `tante emma_DB.sql` — MySQL dump with tables, data and the view [`denor_view`](tante emma_DB.sql)
 - `Query to analytical question 1.txt` — SQL for most/least sold in a 30-day timespan
 - `Query to analytical question 2.txt` — SQL for highest turnover in a business year
-- `EventGenerator.java` -
-- `EventProcessorAdvanced.java` -
-- `CountAndSum.java` -
-- `MyProcessor.java` - 
+- `EventGenerator.java` - A small utility that simulates or generates sales events, which is being used with the help of Apache Kafka. This java code produces a sample input for processors or local testing. 
+- `EventProcessorAdvanced.java` - The main processing application. This implements stream or batch processing logic (aggregation, windowing and filtering), which is intended to be run against generated events or a live stream.
+- `CountAndSum.java` - A helper class that implements simple aggregation operations used by processor classes. 
+- `MyProcessor.java` - A processor demonstrating how individual events are parsed and transformed before aggregation.  
 - `pom.xml` — Maven project file
 - `config.xml` — Logback configuration
 - `README.md` — this file
+
+## How to load the sample database
+- On your MySQL server:
+  $ mysql -u root -p < tante\ emma_DB.sql
+
+## How to build the Java files on Eclipse / IntelliJ
+- Build the project:
+  $ mvn clean package
+
+- Run (example):
+  $ java -jar target/your-artifact-id.jar
+  (Adjust artifact id/version based on `pom.xml`)
+
+- Run Configuration: in case the main class is not running properly, include this goal to the "Run Configuration" 
+
+
+## Notes
+- The Java files in the repo are kept small and focused for the course assignment — inspect each file to see examples of event generation, parsing and aggregation.
+- Replace runtime parameters (DB credentials, input paths) as needed in code or configuration before running in your environment.
