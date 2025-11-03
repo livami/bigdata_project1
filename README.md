@@ -48,7 +48,7 @@ This small demo project contains a sample MySQL dataset and example analytical q
   (Adjust artifact id/version based on `pom.xml`)
 
 - Run Configuration: in case the main class is not running properly, include this goal to the "Run Configuration" 
-
+(./bigdata_screenshot.png)
 
 ## Notes
 - The Java files in the repo are kept small and focused for the course assignment — inspect each file to see examples of event generation, parsing and aggregation.
